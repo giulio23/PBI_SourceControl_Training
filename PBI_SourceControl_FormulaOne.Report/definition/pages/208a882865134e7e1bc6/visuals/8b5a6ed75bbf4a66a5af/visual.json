@@ -6,7 +6,7 @@
     "y": 0,
     "z": 0,
     "width": 437.38203957382035,
-    "height": 489.0106544901065,
+    "height": 719.8782343987823,
     "tabOrder": 0
   },
   "visual": {
@@ -46,6 +46,21 @@
           ]
         }
       }
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AlternatingRowsNew'"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }
