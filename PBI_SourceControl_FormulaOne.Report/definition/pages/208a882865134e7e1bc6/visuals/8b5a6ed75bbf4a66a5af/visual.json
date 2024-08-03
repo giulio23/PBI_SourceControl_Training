@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "name": "8b5a6ed75bbf4a66a5af",
+  "position": {
+    "x": 9.74124809741248,
+    "y": 0,
+    "z": 0,
+    "width": 437.38203957382035,
+    "height": 489.0106544901065,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "circuits"
+                    }
+                  },
+                  "Property": "location"
+                }
+              },
+              "queryRef": "circuits.location",
+              "nativeQueryRef": "location"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "circuits"
+                    }
+                  },
+                  "Property": "name"
+                }
+              },
+              "queryRef": "circuits.name",
+              "nativeQueryRef": "name"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

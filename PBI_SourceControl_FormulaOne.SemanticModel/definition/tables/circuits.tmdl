@@ -1,0 +1,91 @@
+table circuits
+	lineageTag: 86be0ec8-c36e-40f2-82e1-ce385c39762f
+
+	column circuitId
+		dataType: int64
+		formatString: 0
+		lineageTag: dff32c85-be74-44de-9507-b59aa27d09ea
+		summarizeBy: count
+		sourceColumn: circuitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column circuitRef
+		dataType: string
+		lineageTag: 40b0a1e6-5f32-455d-bc18-1ba9a32a4cc3
+		summarizeBy: none
+		sourceColumn: circuitRef
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 4c268c07-9641-4abc-85a2-5f453b94f66b
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column location
+		dataType: string
+		lineageTag: 323b3740-e287-40a4-aa82-f46fa71bfbed
+		summarizeBy: none
+		sourceColumn: location
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 4d240831-62da-4453-bb6d-4d8b40e81900
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column lat
+		dataType: int64
+		formatString: 0
+		lineageTag: 555965eb-8f86-4960-9f6b-153c6dea0d56
+		summarizeBy: sum
+		sourceColumn: lat
+
+		annotation SummarizationSetBy = Automatic
+
+	column lng
+		dataType: int64
+		formatString: 0
+		lineageTag: a61611d9-8c7b-49d1-ab04-6915c557da2e
+		summarizeBy: sum
+		sourceColumn: lng
+
+		annotation SummarizationSetBy = Automatic
+
+	column alt
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f35794c-24a3-4c85-bd84-f3a096f2ffd8
+		summarizeBy: sum
+		sourceColumn: alt
+
+		annotation SummarizationSetBy = Automatic
+
+	column url
+		dataType: string
+		lineageTag: eb213f2c-f50f-49a7-a699-364acf6dd93d
+		summarizeBy: none
+		sourceColumn: url
+
+		annotation SummarizationSetBy = Automatic
+
+	partition circuits = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\GitHub\PBI_SourceControl_Training\PBI_SourceControl_Training\circuits.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"circuitId", Int64.Type}, {"circuitRef", type text}, {"name", type text}, {"location", type text}, {"country", type text}, {"lat", Int64.Type}, {"lng", Int64.Type}, {"alt", Int64.Type}, {"url", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
