@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "PBI_SourceControl_FormulaOne"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0b5c2765-4c9b-41be-9836-de9806fa3e3b"
+  }
+}
